@@ -1,0 +1,47 @@
+<h4 class="center">Admin Panel // Search Results</h4>
+<%- include ('partials/adminnav') %>
+<% if(bookings) { %>
+    <% if(bookings.length == 0) { %>
+        <div class="row">
+            <div class="col l12">
+                <h4 class="center">The Booking Does Not Exist</h4>
+                <h4 class="center">It Seems You Have Not Booked A Seat</h4>
+            </div>
+        </div>
+    <% } %>
+    <% bookings.forEach(booking => { %>
+        <div class="row">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Phone</th>
+                    <th>Origin</th>
+                    <th>Destination</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Seats</th>
+                    <th>Secret</th>
+                    <th>Verified</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td><p><%= booking.customer_ID %></p></td>
+                    <td><p><%= booking.customer_Phone_Number %></p></td>
+                    <td><p><%= booking.origin %></p></td>
+                    <td><p><%= booking.destination %></p></td>
+                    <td><p><%= booking.travel_Date %></p></td>
+                    <td><p><%= booking.departure_Time %></p></td>
+                    <td><p><%= booking.no_Of_Seats %></p></td>
+                    <td><p><%= booking.customer_Secret %></p></td>
+                    <td><p><%= booking.is_Verified %></p></td>
+                    <td><p><a onclick="window.location='/admin/archive/<%= booking._id%>';" style="cursor: pointer;"><i class="material-icons">archive</i>Archive</a></td>
+                </tr>
+            </table>
+        </div>
+    <% }) %>
+    <% } %>
+<div class="row">
+    <div class="col l12">
+        <a href="/admin/searchverified" class="btn right">Go Back To Search</a>
+    </div>
+</div>

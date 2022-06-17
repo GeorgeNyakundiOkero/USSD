@@ -1,0 +1,11 @@
+<h4 class="center">Login</h4>
+<%- include ('partials/messages') %>
+<div class="container">
+    <form action="/users/login" method="POST">
+        <label for="email">Email</label>
+        <input type="email" name="email" placeholder="Enter Your Email">
+        <label for="password">Password</label>
+        <input type="password" name="password" placeholder="Enter Your Password">
+        <input class="btn" type="submit" value="Log In">
+    </form>
+</div>

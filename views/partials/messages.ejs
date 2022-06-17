@@ -1,0 +1,30 @@
+<% if(typeof errors != 'undefined') { %>
+    <% errors.forEach(function(error){ %>
+        <div class="" role="alert">
+            <%= error.msg %>
+          </div>
+    <% }); %>
+
+<% } %>
+
+<% if (success_msg != '') { %>
+    <div class="card-panel lime accent-3" role="alert">
+        <div class="material-icons text-blue">check_circle</div>
+        <%= success_msg %>
+      </div>
+      
+<% } %>
+
+<% if (error_msg != '') { %>
+    <div class="card-panel red accent-1" role="alert">
+        <div class="material-icons">cancel</div>
+        <%= error_msg %>
+    </div>
+<% } %>
+
+<% if (error != '') { %>
+  <div class="" role="alert">
+      <%= error %>
+     
+  </div>
+<% } %>

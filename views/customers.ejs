@@ -1,0 +1,25 @@
+<h4 class="center">Admin Panel // Customers</h4>
+<%- include ('partials/adminnav') %>
+
+<% if(customers) { %>
+    <div class="row">
+        <div class="col l2"><strong>ID Number</strong></div>
+        <div class="col l2"><strong>Phone Numer</strong></div>
+        <div class="col l2"><strong>PIN</strong></div>
+        <div class="col l2"><strong class="center"">Regular</strong></div>
+        <div class="col l2"></div>
+    </div>
+    <% customers.forEach(customer => { %>
+        <div class="row">
+        <div class="col l2"><p><%= customer.ID_Number %></p></div>
+        <div class="col l2"><p><%= customer.phone_Number %></p></div>
+        <div class="col l2"><p><%= customer.customer_Pin %></p></div>
+        <div class="col l2"><p><%= customer.is_Regular %></p></div>
+        <% if(customer.is_Regular) {%>
+            <div class="col l2"><p class="center green-text">Regular</p></div> 
+        <% } else { %>
+            <div class="col l2"><a  onclick="window.location='/admin/makeregular/<%= customer._id%>';" style="cursor: pointer;" ><i class="material-icons">beenhere</i>Make Regular</a></div>
+        <% } %>
+        </div>
+    <% }) %>
+<% } %>

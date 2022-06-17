@@ -1,0 +1,41 @@
+<h4 class="center">Admin Panel // Archived Travel Logs</h4>
+<%- include ('partials/adminnav') %>
+
+<% if(bookings) { %>
+    <% bookings.forEach(booking => { %>
+        <div class="row">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Phone</th>
+                    <th>Origin</th>
+                    <th>Destination</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Seats</th>
+                    <th>Secret</th>
+                    <th>Verified</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td><p><%= booking.customer_ID %></p></td>
+                    <td><p><%= booking.customer_Phone_Number %></p></td>
+                    <td><p><%= booking.origin %></p></td>
+                    <td><p><%= booking.destination %></p></td>
+                    <td><p><%= booking.travel_Date %></p></td>
+                    <td><p><%= booking.departure_Time %></p></td>
+                    <td><p><%= booking.no_Of_Seats %></p></td>
+                    <td><p><%= booking.customer_Secret %></p></td>
+                    <td><p><%= booking.is_Verified %></p></td>
+                    <% if(booking.is_Verified) {%>
+                        <td><a  onclick="window.location='/admin/unarchive/<%= booking._id%>';" style="cursor: pointer;" ><i class="material-icons">unarchive</i>UnArchive</a></td>
+                    <% } else { %>
+                        <td><a href="#">Sealed</a></td>
+                    <% } %>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    <% }) %>
+<% } %>

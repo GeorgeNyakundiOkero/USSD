@@ -1,0 +1,16 @@
+<h4 class="center">Admin Panel // Search</h4>
+<%- include ('partials/adminnav') %>
+<div class="row">
+<form action="/admin/searchresults">
+    <div class="col l12">
+        <label for="customer_ID"><h4>Search By Customer ID</h4></label>
+    </div>
+    <div class="col l12">
+        <input type="text" name="customer_ID" id="customer_ID" autocomplete="off" placeholder="Enter Customer ID (NO SPACES)">
+    </div>
+    <div class="col l12">
+        <input type="submit" value="Search Booking" class="btn">
+    </div>
+</form>
+</div>
+

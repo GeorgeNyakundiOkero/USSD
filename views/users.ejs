@@ -1,0 +1,28 @@
+<h4 class="center">Admin Panel // Users</h4>
+<%- include ('partials/adminnav') %>
+
+<% if(users) { %>
+    <div class="row">
+        <div class="col l2"><strong>First Name</strong></div>
+        <div class="col l2"><strong>Last Name</strong></div>
+        <div class="col l2"><strong>Email</strong></div>
+        <div class="col l2"><strong class="right">Phone Number</strong></div>
+        <div class="col l2"><strong class="right">Admin ?</strong></div>
+        <div class="col l2"><strong></strong></div>
+    </div>
+    <% users.forEach(user => { %>
+        <div class="row">
+            <div class="col l2"><p class="left"><%= user.firstName %></p></div>
+            <div class="col l2"><p class="left"><%= user.lastName %></p></div>
+            <div class="col l2"><p class="left"><%= user.email %></p></div>
+            <div class="col l2"><p class="right"><%= user.phoneNumber %></p></div>
+            <div class="col l2"><p class="right"><%= user.userType %></p></div>
+            <% if(user.userType) { %>
+                <div class="col l2"><a class="right" onclick="window.location='/admin/takeadmin/<%= user._id%>';" style="cursor: pointer;"><i class="small material-icons">check_circle</i></a></div>
+            <%} else { %>
+                <div class="col l2"><a class="right" onclick="window.location='/admin/giveadmin/<%= user._id%>';" style="cursor: pointer;"><i class="small material-icons">add_circle</i></a></div>
+            <% } %>
+            
+        </div>
+    <% }) %>
+<% } %>
